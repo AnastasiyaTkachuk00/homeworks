@@ -1,0 +1,5 @@
+string = input('Введите имя и фамилию: ')
+words = string.split()
+words.reverse()
+string = ' '.join(words)
+print(string)
