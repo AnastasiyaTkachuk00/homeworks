@@ -1,15 +1,19 @@
-def up_str(func):
-    def wrap(some_str):
-        res = func(some_str)
+my_list = ['Hello', ' world']
+
+
+def text_up(func):
+    def wrap(values):
+        global my_list
+        my_list = list(map(str.upper, my_list))
+        res = func(values)
         return res
     return wrap
 
 
-@up_str
-def test_func(some_str):
-    some_str = ['Hello', ' world!']
-    new_list = [word.upper() for word in some_str]
-    return new_list
+@text_up
+def get_text(values):
+    res = ' '.join(my_list)
+    return res
 
 
-print(test_func(['Hello', ' world!']))
+print(get_text(my_list))
