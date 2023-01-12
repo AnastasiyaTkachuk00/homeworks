@@ -1,3 +1,7 @@
+class ValidationError(Exception):
+    pass
+
+
 class Student:
     def __init__(self, name, surname, group_number, great):
         self.name = name
@@ -28,43 +32,35 @@ class Student:
         self._surname = value
 
 
-class ValidationError(Exception):
-    pass
-
-
 class School:
-    def __init__(self, students):
+    def __init__(self):
         self.students = []
 
-    def add_student(self, students):
-        self.students.append(student1, student2, student3, student4, student5)
-
-    def get_best_student(self):
+    def add_student(self, student):
+        self.students.append(student)
+    
+    def get_best_students(self):
         best_students = []
-        for greats in self.students:
-            if self.great == 5 or self.great == 6:
-                return best_students
+        for student in self.students:
+            great_set = set(student.great)
+        if not great_set.intersection({1, 2, 3, 4, 7, 8, 9, 10}):
+            best_students.append(student)
+            return best_students
 
     def get_students(self, group_number):
         group_students = []
-        if Student.group_number == self.students.group.name:
-            group_students.append()
-        return group_students
-
+        for group_number in self.students:
+            if group_number in school.students:
+                group_students.append()
+            return group_students
+    
     def get_students_without_exams(self):
-        self.astudents.append(Student())
+        return sum(student.great for student in self.students) / len(self.students)
 
-    def avg_maths(self):
-        return sum(student.maths for student in self.students) / len(self.students)
-
-
-student1 = Student('Ivan', 'Ivanov', 15, [4, 7, 8, 5, 4])
-student2 = Student('Bill', 'Jonas', 13, [9, 9, 8, 8, 8])
-student3 = Student('Nick', 'Jordan', 10, [6, 8, 9, 6, 4])
-student4 = Student('Maria', 'Shpak', 13, [7, 9, 8, 7, 7])
-student5 = Student('James', 'Cotlin', 15, [6, 7, 8, 9, 9])
 
 school = School()
-school.add_student()
-print(School.students)
-print(School.avg_maths)
+school.add_student(Student('Bill', 'Jonas', 13, [9, 9, 8, 8, 8]))
+school.add_student(Student('Nick', 'Jordan', 10, [6, 8, 9, 6, 4]))
+school.add_student(Student('Maria', 'Shpak', 13, [7, 9, 8, 7, 7]))
+school.add_student(Student('James', 'Cotlin', 15, [6, 7, 8, 9, 9]))
+print(school.students)
