@@ -1,0 +1,4 @@
+curl -O https://www.gnu.org/licenses/gpl-3.0.txt
+curl -o homework.txt https://www.gnu.org/licenses/gpl-3.0.txt
+cat homework.txt
+grep -w "GNU | GPU | Linux" homework.txt
