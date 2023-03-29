@@ -1,14 +1,13 @@
 #!/bin/bash
 
-echo "Do you want to install Python?"
-read c
-
-if [[ $c == "Yes" ]];
-then
-    echo "You choose to install Python"
-elif [[ $c == "No" ]];
-then
-    echo "Go away close the door"
-else 
-    echo "Try again"
-fi
+PS3 "Do you want to install Python?"
+echo
+select variant in "Yes"     
+do
+    echo "You choose to install Python" &&break
+select variant in "No"
+do
+    echo "Go away close the door" &&break 
+done
+    
+exit 0
